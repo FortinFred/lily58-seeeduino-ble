@@ -1,4 +1,4 @@
-#include "lily58.dtsi"
+#include "lily58_seeeduino_ble.dtsi"
 
 &kscan0 {
     col-gpios
