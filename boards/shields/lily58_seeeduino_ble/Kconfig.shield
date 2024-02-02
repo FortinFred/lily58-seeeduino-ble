@@ -1,0 +1,5 @@
+config SHIELD_LILY58_SEEEDUINO_BLE_LEFT
+    def_bool $(shields_list_contains,lily58_seeeduino_ble_left)
+
+config SHIELD_LILY58_SEEEDUINO_BLE_RIGHT
+    def_bool $(shields_list_contains,lily58_seeeduino_ble_right)

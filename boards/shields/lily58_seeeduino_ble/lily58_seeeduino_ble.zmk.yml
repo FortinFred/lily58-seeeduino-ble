@@ -1,0 +1,12 @@
+file_format: "1"
+id: lily58_seeeduino_ble
+name: Lily58 Seeeduino BLE
+type: shield
+url: https://github.com/FortinFred/lily58-seeeduino-ble
+requires: [seeed_xiao]
+exposes: []
+features:
+  - keys
+siblings:
+  - lily58_seeeduino_ble_left
+  - lily58_seeeduino_ble_right
