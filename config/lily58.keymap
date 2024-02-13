@@ -22,44 +22,7 @@
         };
     };
 
-    combos {
-        compatible = "zmk,combos";
-
-        SO_AT {
-            bindings = <&kp FR_AT_SIGN>;
-            key-positions = <24 2>;
-            timeout-ms = <10000>;
-            layers = <0>;
-        };
-
-        SO_LEFT_BRACE {
-            bindings = <&kp FR_LEFT_BRACE>;
-            key-positions = <24 42>;
-            timeout-ms = <10000>;
-            layers = <0>;
-        };
-
-        SO_RIGHT_BRACE {
-            bindings = <&kp FR_RIGHT_BRACE>;
-            key-positions = <24 43>;
-            timeout-ms = <10000>;
-            layers = <0>;
-        };
-
-        SO_DOUBLE_QUOTE {
-            bindings = <&kp FR_DOUBLE_QUOTES>;
-            key-positions = <24 35>;
-            timeout-ms = <10000>;
-            layers = <0>;
-        };
-
-        SO_POUND {
-            bindings = <&kp FR_POUND>;
-            key-positions = <24 3>;
-            timeout-ms = <10000>;
-            layers = <0>;
-        };
-    };
+    combos { compatible = "zmk,combos"; };
 
     behaviors {
         shift_lt: shift_lt {
@@ -80,6 +43,24 @@
             mods = <(MOD_LSFT)>;
             keep-mods = <(MOD_LSFT)>;
         };
+
+        shift_at: shift_at {
+            compatible = "zmk,behavior-mod-morph";
+            label = "SHIFT_AT";
+            bindings = <&kp FR_N2>, <&kp FR_AT>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT)>;
+        };
+
+        shift_pound: shift_pound {
+            compatible = "zmk,behavior-mod-morph";
+            label = "SHIFT_POUND";
+            bindings = <&kp FR_N3>, <&kp FR_POUND>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT)>;
+        };
     };
 
     keymap {
@@ -87,11 +68,11 @@
 
         default_layer {
             bindings = <
-&kp ESC         &kp N1  &kp N2  &kp N3    &kp N4    &kp N5                                               &kp N6         &kp N7  &kp N8          &kp N9     &kp N0        &kp EQUAL
-&kp TAB         &kp Q   &kp W   &kp E     &kp R     &kp T                                                &kp Y          &kp U   &kp I           &kp O      &kp P         &kp MINUS
-&kp LEFT_SHIFT  &kp A   &kp S   &kp D     &kp F     &kp G                                                &kp H          &kp J   &kp K           &kp L      &kp SEMI      &kp FR_SINGLE_QUOTE
-&kp LCTRL       &kp Z   &kp X   &kp C     &kp V     &kp B   &kp FR_LEFT_BRACKET    &kp FR_RIGHT_BRACKET  &kp N          &kp M   &shift_lt       &shift_gt  &kp FR_SLASH  &kp FR_GRAVE
-                                &kp LGUI  &kp LALT  &mo 2   &kp SPACE              &kp RET               &kp BACKSPACE  &mo 1   &kp FR_E_ACUTE
+&kp ESC         &kp N1  &shift_at  &shift_pound  &kp N4    &kp N5                                               &kp N6         &kp N7  &kp N8          &kp N9     &kp N0        &kp EQUAL
+&kp TAB         &kp Q   &kp W      &kp E         &kp R     &kp T                                                &kp Y          &kp U   &kp I           &kp O      &kp P         &kp MINUS
+&kp LEFT_SHIFT  &kp A   &kp S      &kp D         &kp F     &kp G                                                &kp H          &kp J   &kp K           &kp L      &kp SEMI      &kp FR_SINGLE_QUOTE
+&kp LCTRL       &kp Z   &kp X      &kp C         &kp V     &kp B   &kp FR_LEFT_BRACKET    &kp FR_RIGHT_BRACKET  &kp N          &kp M   &shift_lt       &shift_gt  &kp FR_SLASH  &kp FR_GRAVE
+                                   &kp LGUI      &kp LALT  &mo 2   &kp SPACE              &kp RET               &kp BACKSPACE  &mo 1   &kp FR_E_ACUTE
             >;
         };
 
