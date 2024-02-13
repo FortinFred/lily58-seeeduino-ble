@@ -68,7 +68,7 @@
 
         Shift {
             bindings = <
-&kp ESC  &kp FR_EXCL   &kp FR_AT_SIGN  &kp FR_POUND  &kp FR_DOLLAR  &kp FR_PERCENT                                           &kp LS(CARET)  &kp FR_AMPERSAND  &kp FR_ASTERISK     &kp FR_LEFT_PARENTHESIS  &kp FR_RIGHT_PARENTHESIS  &kp FR_PLUS
+&kp ESC  &trans        &kp FR_AT_SIGN  &kp FR_POUND  &kp FR_DOLLAR  &kp FR_PERCENT                                           &kp LS(CARET)  &kp FR_AMPERSAND  &kp FR_ASTERISK     &kp FR_LEFT_PARENTHESIS  &kp FR_RIGHT_PARENTHESIS  &kp FR_PLUS
 &trans   &kp LS(FR_Q)  &kp LS(FR_W)    &kp LS(FR_E)  &kp LS(FR_R)   &kp LS(FR_T)                                             &kp LS(FR_Y)   &kp LS(FR_U)      &kp LS(FR_I)        &kp LS(FR_O)             &kp LS(FR_P)              &kp FR_UNDERSCORE
 &trans   &kp LS(FR_A)  &kp LS(FR_S)    &kp LS(FR_D)  &kp LS(FR_F)   &kp LS(FR_G)                                             &kp LS(FR_H)   &kp LS(FR_J)      &kp LS(FR_K)        &kp LS(FR_L)             &kp FR_COLON              &kp FR_DOUBLE_QUOTES
 &trans   &kp LS(FR_Z)  &kp LS(FR_X)    &kp LS(FR_C)  &kp LS(FR_V)   &kp LS(FR_B)    &kp FR_LEFT_BRACE    &kp FR_RIGHT_BRACE  &kp LS(FR_N)   &kp LS(FR_M)      &kp FR_LESS_THAN    &kp FR_GREATER_THAN      &kp FR_QUESTION           &trans
