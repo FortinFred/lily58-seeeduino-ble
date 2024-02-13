@@ -13,17 +13,6 @@
 
 / {
     macros {
-        SHIFT_LAYER: SHIFT_LAYER {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&mo 3 &kp LSHFT>,
-                <&macro_pause_for_release>,
-                <&macro_release>,
-                <&mo 3 &kp LSHFT>;
-        };
-
         BT_PROFILE: BT_PROFILE {
             // ...
 
@@ -31,17 +20,14 @@
             #binding-cells = <1>; // Must be 1
             bindings = <&out OUT_BLE &macro_param_1to2 &bt BT_SEL MACRO_PLACEHOLDER>;
         };
+    };
 
-        SHIFT_OVERRIDES: SHIFT_OVERRIDES {
-            compatible = "zmk,behavior-macro-one-param";
-            #binding-cells = <1>;
-            bindings =
-                <&macro_release>,
-                <&kp LEFT_SHIFT &macro_param_1to1 &kp MACRO_PLACEHOLDER>,
-                <&macro_press>,
-                <&kp LEFT_SHIFT>;
+    combos {
+        compatible = "zmk,combos";
 
-            label = "SHIFT_OVERRIDES";
+        SO_AT {
+            bindings = <&kp FR_AT_SIGN>;
+            key-positions = <24 2>;
         };
     };
 
@@ -50,11 +36,11 @@
 
         default_layer {
             bindings = <
-&kp ESC       &kp N1  &kp N2  &kp N3    &kp N4    &kp N5                                               &kp N6         &kp N7  &kp N8          &kp N9   &kp N0        &kp EQUAL
-&kp TAB       &kp Q   &kp W   &kp E     &kp R     &kp T                                                &kp Y          &kp U   &kp I           &kp O    &kp P         &kp MINUS
-&SHIFT_LAYER  &kp A   &kp S   &kp D     &kp F     &kp G                                                &kp H          &kp J   &kp K           &kp L    &kp SEMI      &kp SQT
-&kp LCTRL     &kp Z   &kp X   &kp C     &kp V     &kp B   &kp FR_LEFT_BRACKET    &kp FR_RIGHT_BRACKET  &kp N          &kp M   &kp COMMA       &kp DOT  &kp FR_SLASH  &kp FR_GRAVE
-                              &kp LGUI  &kp LALT  &mo 2   &kp SPACE              &kp RET               &kp BACKSPACE  &mo 1   &kp FR_E_ACUTE
+&kp ESC         &kp N1  &kp N2  &kp N3    &kp N4    &kp N5                                               &kp N6         &kp N7  &kp N8          &kp N9   &kp N0        &kp EQUAL
+&kp TAB         &kp Q   &kp W   &kp E     &kp R     &kp T                                                &kp Y          &kp U   &kp I           &kp O    &kp P         &kp MINUS
+&kp LEFT_SHIFT  &kp A   &kp S   &kp D     &kp F     &kp G                                                &kp H          &kp J   &kp K           &kp L    &kp SEMI      &kp SQT
+&kp LCTRL       &kp Z   &kp X   &kp C     &kp V     &kp B   &kp FR_LEFT_BRACKET    &kp FR_RIGHT_BRACKET  &kp N          &kp M   &kp COMMA       &kp DOT  &kp FR_SLASH  &kp FR_GRAVE
+                                &kp LGUI  &kp LALT  &mo 2   &kp SPACE              &kp RET               &kp BACKSPACE  &mo 1   &kp FR_E_ACUTE
             >;
         };
 
@@ -75,16 +61,6 @@
 &kp F1     &kp F2  &kp F3  &kp F4   &kp F5   &kp F6                                                  &kp LEFT     &kp DOWN   &kp UP     &kp RIGHT  &trans    &trans
 &kp F7     &kp F8  &kp F9  &kp F10  &kp F11  &kp F12  &kp LEFT_PARENTHESIS    &kp RIGHT_PARENTHESIS  &kp KP_PLUS  &kp MINUS  &kp EQUAL  &kp LBKT   &kp RBKT  &kp BSLH
                            &trans   &trans   &trans   &trans                  &trans                 &trans       &trans     &trans
-            >;
-        };
-
-        Shift {
-            bindings = <
-&trans  &trans  &SHIFT_OVERRIDES FR_AT_SIGN  &SHIFT_OVERRIDES FR_POUND  &trans  &trans                                                                     &trans  &trans  &trans                         &trans                            &trans                        &trans
-&trans  &trans  &trans                       &trans                     &trans  &trans                                                                     &trans  &trans  &trans                         &trans                            &trans                        &trans
-&trans  &trans  &trans                       &trans                     &trans  &trans                                                                     &trans  &trans  &trans                         &trans                            &trans                        &kp FR_DOUBLE_QUOTES
-&trans  &trans  &trans                       &trans                     &trans  &trans  &SHIFT_OVERRIDES FR_LEFT_BRACE    &SHIFT_OVERRIDES FR_RIGHT_BRACE  &trans  &trans  &SHIFT_OVERRIDES FR_LESS_THAN  &SHIFT_OVERRIDES FR_GREATER_THAN  &SHIFT_OVERRIDES FR_QUESTION  &trans
-                                             &trans                     &trans  &trans  &trans                            &trans                           &trans  &trans  &kp LS(FR_E_ACUTE)
             >;
         };
     };
