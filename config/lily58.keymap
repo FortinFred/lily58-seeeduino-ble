@@ -30,7 +30,7 @@
             #binding-cells = <1>; // Must be 1
             bindings
                 = <&out OUT_BLE>
-                , <&macro_param_1to1>, <&bt BT_SEL MACRO_PLACEHOLDER>
+                , <&macro_param_1to2>, <&bt BT_SEL MACRO_PLACEHOLDER>
                 ;
         };
     };
