@@ -31,6 +31,18 @@
             #binding-cells = <1>; // Must be 1
             bindings = <&out OUT_BLE &macro_param_1to2 &bt BT_SEL MACRO_PLACEHOLDER>;
         };
+
+        SHIFT_OVERRIDES: SHIFT_OVERRIDES {
+            compatible = "zmk,behavior-macro-one-param";
+            #binding-cells = <1>;
+            bindings =
+                <&macro_release>,
+                <&kp LEFT_SHIFT &macro_param_1to1 &kp MACRO_PLACEHOLDER>,
+                <&macro_press>,
+                <&kp LEFT_SHIFT>;
+
+            label = "SHIFT_OVERRIDES";
+        };
     };
 
     keymap {
@@ -68,11 +80,11 @@
 
         Shift {
             bindings = <
-&kp ESC  &trans  &kp FR_AT_SIGN  &kp FR_POUND  &trans  &trans                                           &trans  &trans  &trans              &trans               &trans           &trans
-&trans   &trans  &trans          &trans        &trans  &trans                                           &trans  &trans  &trans              &trans               &trans           &trans
-&trans   &trans  &trans          &trans        &trans  &trans                                           &trans  &trans  &trans              &trans               &trans           &kp FR_DOUBLE_QUOTES
-&trans   &trans  &trans          &trans        &trans  &trans  &kp FR_LEFT_BRACE    &kp FR_RIGHT_BRACE  &trans  &trans  &kp FR_LESS_THAN    &kp FR_GREATER_THAN  &kp FR_QUESTION  &trans
-                                 &trans        &trans  &trans  &trans               &trans              &trans  &trans  &kp LS(FR_E_ACUTE)
+&trans  &trans  &SHIFT_OVERRIDES FR_AT_SIGN  &SHIFT_OVERRIDES FR_POUND  &trans  &trans                                                                     &trans  &trans  &trans                         &trans                            &trans                        &trans
+&trans  &trans  &trans                       &trans                     &trans  &trans                                                                     &trans  &trans  &trans                         &trans                            &trans                        &trans
+&trans  &trans  &trans                       &trans                     &trans  &trans                                                                     &trans  &trans  &trans                         &trans                            &trans                        &kp FR_DOUBLE_QUOTES
+&trans  &trans  &trans                       &trans                     &trans  &trans  &SHIFT_OVERRIDES FR_LEFT_BRACE    &SHIFT_OVERRIDES FR_RIGHT_BRACE  &trans  &trans  &SHIFT_OVERRIDES FR_LESS_THAN  &SHIFT_OVERRIDES FR_GREATER_THAN  &SHIFT_OVERRIDES FR_QUESTION  &trans
+                                             &trans                     &trans  &trans  &trans                            &trans                           &trans  &trans  &kp LS(FR_E_ACUTE)
             >;
         };
     };
