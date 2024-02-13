@@ -49,6 +49,8 @@
         SO_DOUBLE_QUOTE {
             bindings = <&kp FR_DOUBLE_QUOTES>;
             key-positions = <24 35>;
+            timeout-ms = <10000>;
+            layers = <0>;
         };
 
         SO_POUND {
@@ -114,7 +116,7 @@
             bindings = <
 &trans     &kp F1  &kp F2  &kp F3   &kp F4   &kp F5                                                  &kp F6       &kp F7     &kp F8     &kp F9     &kp F10   &kp HOME
 &kp GRAVE  &trans  &trans  &trans   &trans   &trans                                                  &trans       &trans     &trans     &trans     &trans    &kp PAGE_UP
-&kp F1     &kp F2  &kp F3  &kp F4   &kp F5   &kp F6                                                  &kp LEFT     &kp DOWN   &kp UP     &kp RIGHT  &trans    &kp PAGE_DOWN
+&trans     &kp F2  &kp F3  &kp F4   &kp F5   &kp F6                                                  &kp LEFT     &kp DOWN   &kp UP     &kp RIGHT  &trans    &kp PAGE_DOWN
 &kp F7     &kp F8  &kp F9  &kp F10  &kp F11  &kp F12  &kp LEFT_PARENTHESIS    &kp RIGHT_PARENTHESIS  &kp KP_PLUS  &kp MINUS  &kp EQUAL  &kp LBKT   &kp RBKT  &kp END
                            &trans   &trans   &trans   &trans                  &trans                 &kp DELETE   &trans     &trans
             >;
