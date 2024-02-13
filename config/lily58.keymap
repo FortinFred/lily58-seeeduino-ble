@@ -28,6 +28,8 @@
         SO_AT {
             bindings = <&kp FR_AT_SIGN>;
             key-positions = <24 2>;
+            timeout-ms = <60000>;
+            layers = <0>;
         };
     };
 
