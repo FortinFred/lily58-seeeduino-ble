@@ -41,7 +41,7 @@
         };
 
         CCEDILA {
-            bindings = <&kp LC(FR_C_CEDILLA)>;
+            bindings = <&kp FR_C_CEDILLA>;
             key-positions = <38 39>;
         };
 
