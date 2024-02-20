@@ -20,6 +20,20 @@
             #binding-cells = <1>; // Must be 1
             bindings = <&out OUT_BLE &macro_param_1to2 &bt BT_SEL MACRO_PLACEHOLDER>;
         };
+
+        FR_CMS_O_CIR: FR_CMS_O_CIR {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp FR_CARET &kp FR_O>;
+            label = "FR_CMS_O_CIR";
+        };
+
+        FR_CMS_E_CIR: FR_CMS_E_CIR {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp FR_CARET &kp FR_E>;
+            label = "FR_CMS_E_CIR";
+        };
     };
 
     combos {
@@ -50,14 +64,14 @@
             key-positions = <6 7>;
         };
 
-        HOME_COMBO {
-            bindings = <&kp HOME>;
-            key-positions = <13 14>;
+        END_COMBO {
+            bindings = <&FR_CMS_O_CIR>;
+            key-positions = <22 21>;
         };
 
-        END_COMBO {
-            bindings = <&kp END>;
-            key-positions = <22 21>;
+        FR_E_CIRC {
+            bindings = <&FR_CMS_E_CIR>;
+            key-positions = <15 14 16>;
         };
     };
 
@@ -164,17 +178,17 @@
 &kp TAB         &kp Q   &kp W   &kp E     &kp R     &kp T                                                    &kp Y       &kp U   &kp I       &kp O      &kp P         &kp EQUAL
 &kp LEFT_SHIFT  &kp A   &kp S   &kp D     &kp F     &kp G                                                    &kp H       &kp J   &kp K       &kp L      &kp SEMI      &shift_dquote
 &kp LCTRL       &kp Z   &kp X   &kp C     &kp V     &kp B           &shift_left_brace    &shift_right_brace  &kp N       &kp M   &shift_lt   &shift_gt  &shift_qmark  &kp FR_GRAVE
-                                &kp LGUI  &kp LALT  &kp LEFT_SHIFT  &kp SPACE            &kp ENTER           &shift_del  &to 1   &kp ESCAPE
+                                &kp LGUI  &kp LALT  &kp LEFT_SHIFT  &kp SPACE            &lt 1 ENTER         &shift_del  &to 1   &kp ESCAPE
             >;
         };
 
         raise_layer {
             bindings = <
-&kp F12      &kp F1  &kp F2  &kp F3  &kp F4  &kp F5                                                 &kp F6       &kp F7     &kp F8     &kp F9     &kp F10   &kp F11
-&kp FR_PIPE  &trans  &trans  &trans  &trans  &trans                                                 &trans       &trans     &trans     &trans     &trans    &trans
-&trans       &trans  &trans  &trans  &trans  &trans                                                 &kp LEFT     &kp DOWN   &kp UP     &kp RIGHT  &trans    &trans
-&trans       &trans  &trans  &trans  &trans  &trans  &kp LEFT_PARENTHESIS    &kp RIGHT_PARENTHESIS  &kp KP_PLUS  &kp MINUS  &kp EQUAL  &kp LBKT   &kp RBKT  &kp PRINTSCREEN
-                             &trans  &trans  &trans  &kp FR_SLASH            &kp FR_BACKSLASH       &to 0        &to 2      &trans
+&kp F12      &kp F1  &kp F2  &kp F3    &kp F4   &kp F5                                                 &kp F6       &kp F7     &kp F8     &kp F9     &kp F10   &kp F11
+&kp FR_PIPE  &trans  &trans  &trans    &trans   &trans                                                 &trans       &trans     &trans     &trans     &trans    &trans
+&trans       &trans  &trans  &kp HOME  &kp END  &trans                                                 &kp LEFT     &kp DOWN   &kp UP     &kp RIGHT  &trans    &trans
+&trans       &trans  &trans  &trans    &trans   &trans  &kp LEFT_PARENTHESIS    &kp RIGHT_PARENTHESIS  &kp KP_PLUS  &kp MINUS  &kp EQUAL  &kp LBKT   &kp RBKT  &kp PRINTSCREEN
+                             &trans    &trans   &trans  &kp FR_SLASH            &kp FR_BACKSLASH       &to 0        &to 2      &trans
             >;
         };
 
