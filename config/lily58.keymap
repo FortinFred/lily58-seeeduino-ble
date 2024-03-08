@@ -48,6 +48,20 @@
             bindings = <&kp FR_GRAVE &kp SPACE>;
             label = "FR_CMS_BACKTICK";
         };
+
+        FR_CMS_A_CIRC: FR_CMS_A_CIRC {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp FR_CARET &kp FR_A>;
+            label = "FR_CMS_A_CIRC";
+        };
+
+        FR_CMS_I_CIRC: FR_CMS_I_CIRC {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp FR_CARET &kp FR_I>;
+            label = "FR_CMS_I_CIRC";
+        };
     };
 
     combos {
@@ -89,17 +103,17 @@
         };
 
         ACIRC {
-            bindings = <&kp FR_A_GRAVE>;
+            bindings = <&FR_CMS_A_CIRC>;
             key-positions = <25 26 24>;
         };
 
         OCIRC {
-            bindings = <&none>;
+            bindings = <&FR_CMS_O_CIR>;
             key-positions = <22 20 21>;
         };
 
         ICIRC {
-            bindings = <&none>;
+            bindings = <&FR_CMS_I_CIRC>;
             key-positions = <19 20 21>;
         };
     };
