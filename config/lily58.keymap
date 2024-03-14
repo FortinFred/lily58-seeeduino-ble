@@ -240,7 +240,7 @@
 &kp FR_PIPE    &trans  &trans  &trans    &trans   &trans                                                 &trans       &trans     &trans           &trans     &trans            &trans
 &trans         &trans  &trans  &kp HOME  &kp END  &trans                                                 &kp LEFT     &kp DOWN   &kp UP           &kp RIGHT  &trans            &FR_CMS_BACKTICK
 &trans         &trans  &trans  &trans    &trans   &trans  &kp LEFT_PARENTHESIS    &kp RIGHT_PARENTHESIS  &kp KP_PLUS  &kp MINUS  &kp EQUAL        &kp LBKT   &kp FR_BACKSLASH  &trans
-                               &trans    &trans   &trans  &kp FR_SLASH            &none                  &trans       &trans     &kp PRINTSCREEN
+                               &trans    &trans   &trans  &kp FR_SLASH            &none                  &kp DEL      &trans     &kp PRINTSCREEN
             >;
         };
 
