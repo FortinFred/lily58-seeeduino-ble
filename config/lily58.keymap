@@ -62,6 +62,13 @@
             bindings = <&kp FR_CARET &kp FR_I>;
             label = "FR_CMS_I_CIRC";
         };
+
+        FR_CMS_U_CIRC: FR_CMS_U_CIRC {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp FR_CARET &kp FR_U>;
+            label = "FR_CMS_U_CIRC";
+        };
     };
 
     combos {
@@ -115,6 +122,11 @@
         ICIRC {
             bindings = <&FR_CMS_I_CIRC>;
             key-positions = <19 20 21>;
+        };
+
+        UCIRC {
+            bindings = <&FR_CMS_U_CIRC>;
+            key-positions = <18 19 20>;
         };
     };
 
