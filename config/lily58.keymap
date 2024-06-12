@@ -231,6 +231,15 @@
             #binding-cells = <0>;
             mods = <(MOD_LSFT)>;
         };
+
+        shift_6_carret: shift_6_carret {
+            compatible = "zmk,behavior-mod-morph";
+            label = "SHIFT_6_CARRET";
+            bindings = <&kp FR_COMMA>, <&kp CARET>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT)>;
+        };
     };
 
     keymap {
@@ -238,11 +247,11 @@
 
         default_layer {
             bindings = <
-&shift_pipe     &kp N1  &kp N2  &kp N3    &kp N4    &kp N5                                                   &kp N6      &kp N7  &kp N8            &kp N9     &kp N0        &kp MINUS
-&kp TAB         &kp Q   &kp W   &kp E     &kp R     &kp T                                                    &kp Y       &kp U   &kp I             &kp O      &kp P         &kp EQUAL
-&kp LEFT_SHIFT  &kp A   &kp S   &kp D     &kp F     &kp G                                                    &kp H       &kp J   &kp K             &kp L      &kp SEMI      &shift_dquote
-&kp LCTRL       &kp Z   &kp X   &kp C     &kp V     &kp B           &shift_left_brace    &shift_right_brace  &kp N       &kp M   &shift_lt         &shift_gt  &shift_qmark  &kp F12
-                                &kp LGUI  &kp LALT  &kp LEFT_SHIFT  &kp SPACE            &lt 1 ENTER         &shift_del  &mo 2   &kp FR_BACKSLASH
+&shift_pipe     &kp N1  &kp N2  &kp N3    &kp N4    &kp N5                                                   &shift_6_carret  &kp N7  &kp N8            &kp N9     &kp N0        &kp MINUS
+&kp TAB         &kp Q   &kp W   &kp E     &kp R     &kp T                                                    &kp Y            &kp U   &kp I             &kp O      &kp P         &kp EQUAL
+&kp LEFT_SHIFT  &kp A   &kp S   &kp D     &kp F     &kp G                                                    &kp H            &kp J   &kp K             &kp L      &kp SEMI      &shift_dquote
+&kp LCTRL       &kp Z   &kp X   &kp C     &kp V     &kp B           &shift_left_brace    &shift_right_brace  &kp N            &kp M   &shift_lt         &shift_gt  &shift_qmark  &kp F12
+                                &kp LGUI  &kp LALT  &kp LEFT_SHIFT  &kp SPACE            &lt 1 ENTER         &shift_del       &mo 2   &kp FR_BACKSLASH
             >;
         };
 
