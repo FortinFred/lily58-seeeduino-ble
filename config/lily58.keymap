@@ -77,56 +77,67 @@
         EACUTE {
             bindings = <&kp FR_E_ACUTE>;
             key-positions = <15 16>;
+            layers = <0>;
         };
 
         EGRAVE {
             bindings = <&kp FR_E_GRAVE>;
             key-positions = <15 14>;
+            layers = <0>;
         };
 
         AGRAVE {
             bindings = <&kp FR_A_GRAVE>;
             key-positions = <25 26>;
+            layers = <0>;
         };
 
         CCEDILA {
             bindings = <&kp FR_C_CEDILLA>;
             key-positions = <38 39>;
+            layers = <0>;
         };
 
         UGRAVE {
             bindings = <&kp FR_U_GRAVE>;
             key-positions = <18 19>;
+            layers = <0>;
         };
 
         END_COMBO {
             bindings = <&FR_CMS_O_CIR>;
             key-positions = <22 21 20>;
+            layers = <0>;
         };
 
         ECIRC {
             bindings = <&FR_CMS_E_CIR>;
             key-positions = <15 14 16>;
+            layers = <0>;
         };
 
         ACIRC {
             bindings = <&FR_CMS_A_CIRC>;
             key-positions = <25 26 24>;
+            layers = <0>;
         };
 
         OCIRC {
             bindings = <&FR_CMS_O_CIR>;
             key-positions = <22 20 21>;
+            layers = <0>;
         };
 
         ICIRC {
             bindings = <&FR_CMS_I_CIRC>;
             key-positions = <19 20 21>;
+            layers = <0>;
         };
 
         UCIRC {
             bindings = <&FR_CMS_U_CIRC>;
             key-positions = <18 19 20>;
+            layers = <0>;
         };
     };
 
@@ -261,7 +272,7 @@
 &kp FR_PIPE    &trans  &trans  &trans    &trans   &trans                                                 &trans       &trans     &trans           &trans     &trans            &trans
 &trans         &trans  &trans  &kp HOME  &kp END  &trans                                                 &kp LEFT     &kp DOWN   &kp UP           &kp RIGHT  &trans            &FR_CMS_BACKTICK
 &trans         &trans  &trans  &trans    &trans   &trans  &kp LEFT_PARENTHESIS    &kp RIGHT_PARENTHESIS  &kp KP_PLUS  &kp MINUS  &kp EQUAL        &kp LBKT   &kp FR_BACKSLASH  &trans
-                               &trans    &trans   &trans  &kp FR_SLASH            &none                  &kp DEL      &trans     &kp PRINTSCREEN
+                               &trans    &trans   &trans  &kp FR_SLASH            &none                  &kp DEL      &to 3      &kp PRINTSCREEN
             >;
         };
 
@@ -272,6 +283,16 @@
 &kp GRAVE     &kp EXCL          &kp AT             &kp HASH           &kp DOLLAR     &kp PRCNT                                                           &kp FR_CARET  &kp AMPS   &kp KP_MULTIPLY  &kp LPAR  &kp RPAR    &kp TILDE
 &trans        &ext_power EP_ON  &ext_power EP_OFF  &ext_power EP_TOG  &trans         &trans         &kp FR_LEFT_PARENTHESIS    &kp FR_RIGHT_PARENTHESIS  &trans        &kp MINUS  &kp KP_PLUS      &kp LBRC  &kp RBRC    &kp PIPE
                                                    &bootloader        &trans         &trans         &trans                     &trans                    &trans        &trans     &trans
+            >;
+        };
+
+        no_combo_layer {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
+                        &trans  &trans  &trans  &trans    &trans  &trans  &to 0   &trans
             >;
         };
     };
