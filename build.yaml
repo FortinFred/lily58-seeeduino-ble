@@ -19,6 +19,6 @@
 ---
 include:
   - board: seeeduino_xiao_ble
-    shield: lily58_seeeduino_ble_left
+    shield: lily58_seeeduino_ble_left rgbled_adapter
   - board: seeeduino_xiao_ble
-    shield: lily58_seeeduino_ble_right
+    shield: lily58_seeeduino_ble_right rgbled_adapter
