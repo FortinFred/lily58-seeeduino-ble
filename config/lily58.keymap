@@ -1,220 +1,299 @@
+/*
+ * Copyright (c) 2020 The ZMK Contributors
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+#include "keys_fr_canadian_standard.h"
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/ext_power.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/outputs.h>
-#include <dt-bindings/zmk/layer.h>
-#include "keys_fr_canadian_standard.h"
 
-/include/ {
-    #include <behaviors.dtsi>
-};
+/ {
+    macros {
+        BT_PROFILE: BT_PROFILE {
+            // ...
 
-/keymap/ {
-    compatible = "zmk,keymap";
-
-    layers {
-        default_layer {
-            row1 = <
-                &th MOD_LSFT &kp ESC       &m N1          &m N2          &m N3          &m N4          &m N5
-                &th MOD_LSFT &kp N6        &m N7          &m N8          &m N9          &m N0          &m MINUS
-            >;
-            row2 = <
-                &m TAB         &m Q         &m W         &m E         &m R         &m T
-                &m Y         &m U         &m I         &m O         &m P         &th MOD_LSFT &m EQUAL
-            >;
-            row3 = <
-                &m LSFT        &m A         &m S         &m D         &m F         &m G
-                &m H         &m J         &m K         &m L         &m SEMICOLON &th MOD_LSFT &m QUOTE
-            >;
-            row4 = <
-                &m LCTRL       &m Z         &m X         &m C         &m V         &m B
-                &th MOD_LSFT &m LBKT      &th MOD_LSFT &m RBKT      &m N         &m M         &th MOD_LSFT &m COMMA     &th MOD_LSFT &m DOT       &th MOD_LSFT &m SLASH
-            >;
-            row5 = <
-                            &m LGUI        &m LALT        &m LSFT        &m SPACE
-                            &lt 1 &m ENTER &th MOD_LSFT &m BACKSPACE &mo 2        &m BACKSLASH
-            >;
+            compatible = "zmk,behavior-macro-one-param";
+            #binding-cells = <1>; // Must be 1
+            bindings = <&out OUT_BLE &macro_param_1to2 &bt BT_SEL MACRO_PLACEHOLDER>;
         };
 
-        raise_layer {
-            row1 = <
-                &m TILDE       &m F1        &m F2        &m F3        &m F4        &m F5
-                &m F6        &m F7        &m F8        &m F9        &m F10       &m F11
-            >;
-            row2 = <
-                &m PIPE        &trans       &trans       &trans       &trans       &trans
-                &trans       &trans       &trans       &trans       &trans       &trans
-            >;
-            row3 = <
-                &trans       &trans       &trans       &m HOME      &m END       &trans
-                &m LEFT      &m DOWN      &m UP        &m RIGHT     &trans       &m GRAVE
-            >;
-            row4 = <
-                &trans       &trans       &trans       &trans       &trans       &trans
-                &m LPAR      &m RPAR      &m PLUS      &m MINUS     &m EQUAL     &m LBKT      &m BACKSLASH     &trans
-            >;
-            row5 = <
-                            &trans       &trans       &trans       &m SLASH
-                            &none        &m DELETE    &to 3        &m PRINTSCREEN
-            >;
+        FR_CMS_O_CIR: FR_CMS_O_CIR {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp FR_CARET &kp FR_O>;
+            label = "FR_CMS_O_CIR";
         };
 
-        meta_layer {
-            row1 = <
-                &out OUT_USB &m BT_CONNECT 0    &m BT_CONNECT 1    &m BT_CONNECT 2    &m BT_CONNECT 3    &m BT_CONNECT 4
-                &trans       &trans       &trans       &trans       &m BT_CLR      &trans
-            >;
-            row2 = <
-                &m F1        &m F2        &m F3        &m F4        &m F5        &m F6
-                &m F7        &m F8        &m F9        &m F10       &m F11       &m F12
-            >;
-            row3 = <
-                &m GRAVE     &m EXCLAM    &m AT        &m HASH      &m DOLLAR    &m PERCENT
-                &m CARET     &m AMPERSAND &m ASTERISK  &m LPAR      &m RPAR      &m TILDE
-            >;
-            row4 = <
-                &trans       &m POWER_ON  &m POWER_OFF &m POWER_TOG &trans       &trans
-                &m LPAR      &m RPAR      &trans       &m MINUS     &m PLUS      &m LBRC      &m RBRC      &m PIPE
-            >;
-            row5 = <
-                            &m BOOTLOADER &trans       &trans       &trans
-                &trans       &trans       &trans       &trans
-            >;
+        FR_CMS_E_CIR: FR_CMS_E_CIR {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp FR_CARET &kp FR_E>;
+            label = "FR_CMS_E_CIR";
         };
 
-        no_combo_layer {
-            row1 = <
-                &trans &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans &trans
-            >;
-            row2 = <
-                &trans &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans &trans
-            >;
-            row3 = <
-                &trans &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans &trans
-            >;
-            row4 = <
-                &trans &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans &trans
-            >;
-            row5 = <
-                &trans &trans &trans &trans
-                &trans &trans &to 0 &trans
-            >;
+        FR_CMS_TILDE: FR_CMS_TILDE {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp FR_TILDE &kp SPACE>;
+            label = "FR_CMS_TILDE";
+        };
+
+        FR_CMS_BACKTICK: FR_CMS_BACKTICK {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp FR_GRAVE &kp SPACE>;
+            label = "FR_CMS_BACKTICK";
+        };
+
+        FR_CMS_A_CIRC: FR_CMS_A_CIRC {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp FR_CARET &kp FR_A>;
+            label = "FR_CMS_A_CIRC";
+        };
+
+        FR_CMS_I_CIRC: FR_CMS_I_CIRC {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp FR_CARET &kp FR_I>;
+            label = "FR_CMS_I_CIRC";
+        };
+
+        FR_CMS_U_CIRC: FR_CMS_U_CIRC {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp FR_CARET &kp FR_U>;
+            label = "FR_CMS_U_CIRC";
         };
     };
 
     combos {
         compatible = "zmk,combos";
 
-        eacute_combo: eacute_combo {
-            bindings = <&m E_ACUTE>;
+        EACUTE {
+            bindings = <&kp FR_E_ACUTE>;
             key-positions = <15 16>;
             layers = <0>;
         };
 
-        egrave_combo: egrave_combo {
-            bindings = <&m E_GRAVE>;
+        EGRAVE {
+            bindings = <&kp FR_E_GRAVE>;
             key-positions = <15 14>;
             layers = <0>;
         };
 
-        agrave_combo: agrave_combo {
-            bindings = <&m A_GRAVE>;
+        AGRAVE {
+            bindings = <&kp FR_A_GRAVE>;
             key-positions = <25 26>;
             layers = <0>;
         };
 
-        ccedila_combo: ccedila_combo {
-            bindings = <&m C_CEDILLA>;
+        CCEDILA {
+            bindings = <&kp FR_C_CEDILLA>;
             key-positions = <38 39>;
             layers = <0>;
         };
 
-        ugrave_combo: ugrave_combo {
-            bindings = <&m U_GRAVE>;
+        UGRAVE {
+            bindings = <&kp FR_U_GRAVE>;
             key-positions = <18 19>;
             layers = <0>;
         };
 
-        end_combo: end_combo {
-            bindings = <&macro_o_circ>;
+        END_COMBO {
+            bindings = <&FR_CMS_O_CIR>;
             key-positions = <22 21 20>;
             layers = <0>;
         };
 
-        ecirc_combo: ecirc_combo {
-            bindings = <&macro_e_circ>;
+        ECIRC {
+            bindings = <&FR_CMS_E_CIR>;
             key-positions = <15 14 16>;
             layers = <0>;
         };
 
-        acirc_combo: acirc_combo {
-            bindings = <&macro_a_circ>;
+        ACIRC {
+            bindings = <&FR_CMS_A_CIRC>;
             key-positions = <25 26 24>;
             layers = <0>;
         };
 
-        ocirc_combo: ocirc_combo {
-            bindings = <&macro_o_circ>;
+        OCIRC {
+            bindings = <&FR_CMS_O_CIR>;
             key-positions = <22 20 21>;
             layers = <0>;
         };
 
-        icirc_combo: icirc_combo {
-            bindings = <&macro_i_circ>;
+        ICIRC {
+            bindings = <&FR_CMS_I_CIRC>;
             key-positions = <19 20 21>;
             layers = <0>;
         };
 
-        ucirc_combo: ucirc_combo {
-            bindings = <&macro_u_circ>;
+        UCIRC {
+            bindings = <&FR_CMS_U_CIRC>;
             key-positions = <18 19 20>;
             layers = <0>;
         };
     };
 
-    macros {
-        macro_o_circ: macro_o_circ {
-            compatible = "zmk,behavior-macro";
+    behaviors {
+        shift_lt: shift_lt {
+            compatible = "zmk,behavior-mod-morph";
+            label = "SHIFT_LT";
+            bindings = <&kp FR_COMMA>, <&kp FR_LESS_THAN>;
+
             #binding-cells = <0>;
-            bindings = <&m CARET &m O>;
+            mods = <(MOD_LSFT)>;
         };
 
-        macro_e_circ: macro_e_circ {
-            compatible = "zmk,behavior-macro";
+        shift_gt: shift_gt {
+            compatible = "zmk,behavior-mod-morph";
+            label = "SHIFT_GT";
+            bindings = <&kp FR_DOT>, <&kp FR_GREATER_THAN>;
+
             #binding-cells = <0>;
-            bindings = <&m CARET &m E>;
+            mods = <(MOD_LSFT)>;
         };
 
-        macro_tilde: macro_tilde {
-            compatible = "zmk,behavior-macro";
+        shift_at: shift_at {
+            compatible = "zmk,behavior-mod-morph";
+            label = "SHIFT_AT";
+            bindings = <&kp FR_N2>, <&kp FR_AT>;
+
             #binding-cells = <0>;
-            bindings = <&m TILDE &m SPACE>;
+            mods = <(MOD_LSFT)>;
         };
 
-        macro_backtick: macro_backtick {
-            compatible = "zmk,behavior-macro";
+        shift_pound: shift_pound {
+            compatible = "zmk,behavior-mod-morph";
+            label = "SHIFT_POUND";
+            bindings = <&kp FR_N3>, <&kp FR_POUND>;
+
             #binding-cells = <0>;
-            bindings = <&m GRAVE &m SPACE>;
+            mods = <(MOD_LSFT)>;
         };
 
-        macro_a_circ: macro_a_circ {
-            compatible = "zmk,behavior-macro";
+        shift_del: shift_del {
+            compatible = "zmk,behavior-mod-morph";
+            label = "SHIFT_DEL";
+            bindings = <&kp BACKSPACE>, <&kp DEL>;
+
             #binding-cells = <0>;
-            bindings = <&m CARET &m A>;
+            mods = <(MOD_LSFT)>;
         };
 
-        macro_i_circ: macro_i_circ {
-            compatible = "zmk,behavior-macro";
+        shift_left_brace: shift_left_brace {
+            compatible = "zmk,behavior-mod-morph";
+            label = "SHIFT_LEFT_BRACE";
+            bindings = <&kp FR_LEFT_BRACKET>, <&kp FR_LEFT_BRACE>;
+
             #binding-cells = <0>;
-            bindings = <&m CARET &m I>;
+            mods = <(MOD_LSFT)>;
         };
 
-        macro_u_circ: macro_u_circ {
-            compatible = "zmk,behavior-macro";
+        shift_right_brace: shift_right_brace {
+            compatible = "zmk,behavior-mod-morph";
+            label = "SHIFT_RIGHT_BRACE";
+            bindings = <&kp FR_RIGHT_BRACKET>, <&kp FR_RIGHT_BRACE>;
+
             #binding-cells = <0>;
-            bindings = <&m CARET &m U>;
+            mods = <(MOD_LSFT)>;
+        };
+
+        shift_qmark: shift_qmark {
+            compatible = "zmk,behavior-mod-morph";
+            label = "SHIFT_QMARK";
+            bindings = <&kp FR_SLASH>, <&kp FR_QUESTION>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT)>;
+            keep-mods = <(MOD_LSFT)>;
+        };
+
+        shift_dquote: shift_dquote {
+            compatible = "zmk,behavior-mod-morph";
+            label = "SHIFT_DQUOTE";
+            bindings = <&kp FR_SINGLE_QUOTE>, <&kp FR_DOUBLE_QUOTES>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT)>;
+            keep-mods = <(MOD_LSFT)>;
+        };
+
+        shift_tilde: shift_tilde {
+            compatible = "zmk,behavior-mod-morph";
+            label = "SHIFT_TILDE";
+            bindings = <&kp FR_GRAVE>, <&kp FR_TILDE>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT)>;
+        };
+
+        shift_pipe: shift_pipe {
+            compatible = "zmk,behavior-mod-morph";
+            label = "SHIFT_PIPE";
+            bindings = <&kp ESC>, <&kp FR_PIPE>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT)>;
+        };
+
+        shift_6_caret: shift_6_caret {
+            compatible = "zmk,behavior-mod-morph";
+            label = "SHIFT_6_CARET";
+            bindings = <&kp N6>, <&kp FR_CARET>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT)>;
+        };
+    };
+
+    keymap {
+        compatible = "zmk,keymap";
+
+        default_layer {
+            bindings = <
+&shift_pipe     &kp N1  &kp N2  &kp N3    &kp N4    &kp N5                                                   &shift_6_caret  &kp N7  &kp N8            &kp N9     &kp N0        &kp MINUS
+&kp TAB         &kp Q   &kp W   &kp E     &kp R     &kp T                                                    &kp Y           &kp U   &kp I             &kp O      &kp P         &kp EQUAL
+&kp LEFT_SHIFT  &kp A   &kp S   &kp D     &kp F     &kp G                                                    &kp H           &kp J   &kp K             &kp L      &kp SEMI      &shift_dquote
+&kp LCTRL       &kp Z   &kp X   &kp C     &kp V     &kp B           &shift_left_brace    &shift_right_brace  &kp N           &kp M   &shift_lt         &shift_gt  &shift_qmark  &kp F12
+                                &kp LGUI  &kp LALT  &kp LEFT_SHIFT  &kp SPACE            &lt 1 ENTER         &shift_del      &mo 2   &kp FR_BACKSLASH
+            >;
+        };
+
+        raise_layer {
+            bindings = <
+&FR_CMS_TILDE  &kp F1  &kp F2  &kp F3    &kp F4   &kp F5                                                 &kp F6       &kp F7     &kp F8           &kp F9     &kp F10           &kp F11
+&kp FR_PIPE    &trans  &trans  &trans    &trans   &trans                                                 &trans       &trans     &trans           &trans     &trans            &trans
+&trans         &trans  &trans  &kp HOME  &kp END  &trans                                                 &kp LEFT     &kp DOWN   &kp UP           &kp RIGHT  &trans            &FR_CMS_BACKTICK
+&trans         &trans  &trans  &trans    &trans   &trans  &kp LEFT_PARENTHESIS    &kp RIGHT_PARENTHESIS  &kp KP_PLUS  &kp MINUS  &kp EQUAL        &kp LBKT   &kp FR_BACKSLASH  &trans
+                               &trans    &trans   &trans  &kp FR_SLASH            &none                  &kp DEL      &to 3      &kp PRINTSCREEN
+            >;
+        };
+
+        meta_layer {
+            bindings = <
+&out OUT_USB  &BT_PROFILE 0     &BT_PROFILE 1      &BT_PROFILE 2      &BT_PROFILE 3  &BT_PROFILE 4                                                       &trans        &trans     &trans           &trans    &bt BT_CLR  &trans
+&kp F1        &kp F2            &kp F3             &kp F4             &kp F5         &kp F6                                                              &kp F7        &kp F8     &kp F9           &kp F10   &kp F11     &kp F12
+&kp GRAVE     &kp EXCL          &kp AT             &kp HASH           &kp DOLLAR     &kp PRCNT                                                           &kp FR_CARET  &kp AMPS   &kp KP_MULTIPLY  &kp LPAR  &kp RPAR    &kp TILDE
+&trans        &ext_power EP_ON  &ext_power EP_OFF  &ext_power EP_TOG  &trans         &trans         &kp FR_LEFT_PARENTHESIS    &kp FR_RIGHT_PARENTHESIS  &trans        &kp MINUS  &kp KP_PLUS      &kp LBRC  &kp RBRC    &kp PIPE
+                                                   &bootloader        &trans         &trans         &trans                     &trans                    &trans        &trans     &trans
+            >;
+        };
+
+        no_combo_layer {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
+                        &trans  &trans  &trans  &trans    &trans  &trans  &to 0   &trans
+            >;
         };
     };
 };
