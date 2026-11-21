@@ -5,10 +5,9 @@
  */
 
 #include "keys_fr_canadian_standard.h"
-#include <behaviors.dtsi>
 #include <behaviors/rgbled_widget.dtsi>
+#include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
-#include <dt-bindings/zmk/ext_power.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/outputs.h>
 
@@ -269,21 +268,21 @@
 
         raise_layer {
             bindings = <
-&FR_CMS_TILDE  &kp F1  &kp F2  &kp F3    &kp F4   &kp F5                                                 &kp F6       &kp F7     &kp F8           &kp F9     &kp F10           &kp F11
-&kp FR_PIPE    &trans  &trans  &trans    &trans   &trans                                                 &trans       &trans     &trans           &trans     &trans            &trans
-&trans         &trans  &trans  &kp HOME  &kp END  &trans                                                 &kp LEFT     &kp DOWN   &kp UP           &kp RIGHT  &trans            &FR_CMS_BACKTICK
-&trans         &trans  &trans  &trans    &trans   &trans  &kp LEFT_PARENTHESIS    &kp RIGHT_PARENTHESIS  &kp KP_PLUS  &kp MINUS  &kp EQUAL        &kp LBKT   &kp FR_BACKSLASH  &trans
-                               &kp C_VOL_DN    &kp C_VOL_UP   &kp C_MUTE  &kp FR_SLASH            &none                  &kp DEL      &to 3      &kp PRINTSCREEN
+&FR_CMS_TILDE  &kp F1  &kp F2  &kp F3        &kp F4        &kp F5                                                     &kp F6       &kp F7     &kp F8           &kp F9     &kp F10           &kp F11
+&kp FR_PIPE    &trans  &trans  &trans        &trans        &trans                                                     &trans       &trans     &trans           &trans     &trans            &trans
+&trans         &trans  &trans  &kp HOME      &kp END       &trans                                                     &kp LEFT     &kp DOWN   &kp UP           &kp RIGHT  &trans            &FR_CMS_BACKTICK
+&trans         &trans  &trans  &trans        &trans        &trans      &kp LEFT_PARENTHESIS    &kp RIGHT_PARENTHESIS  &kp KP_PLUS  &kp MINUS  &kp EQUAL        &kp LBKT   &kp FR_BACKSLASH  &kp RCTRL
+                               &kp C_VOL_DN  &kp C_VOL_UP  &kp C_MUTE  &kp FR_SLASH            &none                  &kp DEL      &to 3      &kp PRINTSCREEN
             >;
         };
 
         meta_layer {
             bindings = <
-&out OUT_USB  &BT_PROFILE 0     &BT_PROFILE 1      &BT_PROFILE 2      &BT_PROFILE 3  &BT_PROFILE 4                                                       &trans        &trans     &trans           &trans    &bt BT_CLR  &trans
-&kp F1        &kp F2            &kp F3             &kp F4             &kp F5         &kp F6                                                              &kp F7        &kp F8     &kp F9           &kp F10   &kp F11     &kp F12
-&kp GRAVE     &kp EXCL          &kp AT             &kp HASH           &kp DOLLAR     &kp PRCNT                                                           &kp FR_CARET  &kp AMPS   &kp KP_MULTIPLY  &kp LPAR  &kp RPAR    &kp TILDE
-&trans        &trans            &ind_con           &trans             &trans         &ind_bat       &kp FR_LEFT_PARENTHESIS    &kp FR_RIGHT_PARENTHESIS  &trans        &kp MINUS  &kp KP_PLUS      &kp LBRC  &kp RBRC    &kp PIPE
-                                                   &bootloader        &trans         &trans         &trans                     &trans                    &trans        &trans     &trans
+&out OUT_USB  &BT_PROFILE 0  &BT_PROFILE 1  &BT_PROFILE 2  &BT_PROFILE 3  &BT_PROFILE 4                                                       &trans        &trans     &trans           &trans    &bt BT_CLR  &trans
+&kp F1        &kp F2         &kp F3         &kp F4         &kp F5         &kp F6                                                              &kp F7        &kp F8     &kp F9           &kp F10   &kp F11     &kp F12
+&kp GRAVE     &kp EXCL       &kp AT         &kp HASH       &kp DOLLAR     &kp PRCNT                                                           &kp FR_CARET  &kp AMPS   &kp KP_MULTIPLY  &kp LPAR  &kp RPAR    &kp TILDE
+&trans        &trans         &ind_con       &trans         &trans         &ind_bat       &kp FR_LEFT_PARENTHESIS    &kp FR_RIGHT_PARENTHESIS  &trans        &kp MINUS  &kp KP_PLUS      &kp LBRC  &kp RBRC    &kp PIPE
+                                            &bootloader    &trans         &trans         &trans                     &trans                    &trans        &trans     &trans
             >;
         };
 
@@ -294,6 +293,16 @@
 &trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
                         &trans  &trans  &trans  &trans    &trans  &trans  &to 0   &trans
+            >;
+        };
+
+        layer_4 {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
+                        &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans
             >;
         };
     };
