@@ -271,7 +271,7 @@
 &FR_CMS_TILDE  &kp F1  &kp F2  &kp F3        &kp F4        &kp F5                                                     &kp F6       &kp F7     &kp F8           &kp F9     &kp F10           &kp F11
 &kp FR_PIPE    &trans  &trans  &trans        &trans        &trans                                                     &trans       &trans     &trans           &trans     &trans            &trans
 &trans         &trans  &trans  &kp HOME      &kp END       &trans                                                     &kp LEFT     &kp DOWN   &kp UP           &kp RIGHT  &trans            &FR_CMS_BACKTICK
-&trans         &trans  &trans  &trans        &trans        &trans      &kp LEFT_PARENTHESIS    &kp RIGHT_PARENTHESIS  &kp KP_PLUS  &kp MINUS  &kp EQUAL        &kp LBKT   &kp FR_BACKSLASH  &kp RCTRL
+&trans         &trans  &trans  &trans        &trans        &trans      &kp LEFT_PARENTHESIS    &kp RIGHT_PARENTHESIS  &kp KP_PLUS  &kp MINUS  &kp EQUAL        &kp LBKT   &kp FR_BACKSLASH  &kp RIGHT_CONTROL
                                &kp C_VOL_DN  &kp C_VOL_UP  &kp C_MUTE  &kp FR_SLASH            &none                  &kp DEL      &to 3      &kp PRINTSCREEN
             >;
         };
